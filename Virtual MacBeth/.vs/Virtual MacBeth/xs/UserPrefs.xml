@@ -1,0 +1,30 @@
+﻿<Properties StartupConfiguration="{9FCA0E9E-BABF-7BD4-152D-1A9D965A968F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tim/PlayerController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/Tim/PlayerController.cs" Line="41" Column="29" />
+      <File FileName="Assets/Scripts/Tim/CameraFollow.cs" Line="10" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Virtual MacBeth" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Tim" expanded="True">
+                  <Node name="PlayerController.cs" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="93be7ff9-b5a2-4e9a-a210-dc3862c235e2" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
