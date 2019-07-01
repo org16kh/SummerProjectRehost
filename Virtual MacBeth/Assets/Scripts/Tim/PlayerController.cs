@@ -33,19 +33,24 @@ public class PlayerController : MonoBehaviour
     {
         xMove(xInput);
         yMove(yInput);
+        playerRotate(xInput, yInput);
     }
 
     //Move Forward or Backward
     private void xMove(float input)
     {
-        transform.Translate(transform.forward * input * moveSpeed *Time.deltaTime);
+        if (input != 0)
+        {
+            transform.Translate(transform.forward * input * moveSpeed * Time.deltaTime);
+        }
+
     }
 
     //Move Left or Right
     private void yMove(float input)
     {
         // Our clamping system :)
-        transform.Rotate(0, input * rotationRate * Time.deltaTime, 0, Space.World);
+        /*transform.Rotate(0, input * rotationRate * Time.deltaTime, 0, Space.World);
         
         Vector3 currentRotation = transform.localRotation.eulerAngles;
         
@@ -58,9 +63,65 @@ public class PlayerController : MonoBehaviour
         {
             currentRotation.y = Mathf.Clamp(currentRotation.y, 270, 360);
             transform.localRotation = Quaternion.Euler(currentRotation);
+        }*/
+
+        if (input != 0)
+        {
+            transform.Translate(transform.right * -input * moveSpeed * Time.deltaTime);
         }
-
-        transform.Translate(transform.right * input * moveSpeed*Time.deltaTime);
-
+    }
+    private void playerRotate(float xInput, float yInput)
+    {
+        if (yInput != 0 && xInput != 0)
+        {
+            if (xInput < 0)
+            {
+                if (yInput < 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 225, 0);
+                }
+                else
+                {
+                    transform.localRotation = Quaternion.Euler(0, 135, 0);
+                }
+            }
+            else
+            {
+                if (yInput < 0)
+                {
+                    transform.localRotation = Quaternion.Euler(0, 315, 0);
+                }
+                else
+                {
+                    transform.localRotation = Quaternion.Euler(0, 45, 0);
+                }
+            }
+        }
+        else if (yInput == 0 && xInput != 0)
+        {
+            if (xInput < 0.0f)
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        else if (yInput != 0 && xInput == 0)
+        {
+            if (yInput < 0.0f)
+            {
+                transform.localRotation = Quaternion.Euler(0, 270, 0);
+            }
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 90, 0);
+            }
+        }
+        else 
+        {
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
