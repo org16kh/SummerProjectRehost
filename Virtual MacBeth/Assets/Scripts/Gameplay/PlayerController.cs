@@ -12,20 +12,43 @@ public class PlayerController : MonoBehaviour
 
     public float rotationRate = 360;
 
+    //Variables for Toggle Swtch
+
+    bool normal = true;
+
+    public ToggleState togglestate;
+
+    public bool playeractive;
+
+    //public Animator animatorRef;
+
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
-        
+        playeractive = true;
+    }
+
+    // Toggle Switch Functionality
+    void updatetogglestate()
+    {
+        if (Input.GetButtonDown("Toggle") && togglestate != null)
+        {
+            normal = !normal;
+            togglestate.ChangeGameState();
+        }
     }
 
     // Update is called once per frame
-    void Update()
+   public void Update()
     {
         float xAxis = Input.GetAxis(xInput);
         float yAxis = Input.GetAxis(yInput);
         applyInput(xAxis, yAxis);
 
-
+        if (playeractive)
+        {
+            updatetogglestate();
+        }
     }
 
     //call for both inputs, I split these in case we need to script animations on playerMovement
